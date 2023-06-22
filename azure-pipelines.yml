@@ -26,6 +26,27 @@ steps:
     echo † Dead line † 
   displayName: 'Fim da Execução'
 
+- script: |
+    if ! git show-ref --quiet refs/heads/DEV; then
+      git checkout -b DEV
+      git push -u origin DEV
+    fi
+  displayName: 'Create DEV branch if not exists'
+
+- script: |
+    if ! git show-ref --quiet refs/heads/QA; then
+      git checkout -b QA
+      git push -u origin QA
+    fi
+  displayName: 'Create QA branch if not exists'
+
+- script: |
+    if ! git show-ref --quiet refs/heads/PROD; then
+      git checkout -b PROD
+      git push -u origin PROD
+    fi
+  displayName: 'Create PROD branch if not exists'
+
 - script: git checkout DEV
   displayName: 'Switch to DEV branch'
 
