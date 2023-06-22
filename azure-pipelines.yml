@@ -13,8 +13,14 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: npm run lint
-  displayName: 'Run ESLint' 
+- script: npm install
+    displayName: 'Install dependencies'
+
+- script: npx eslint ./
+  displayName: 'Run ESLint'
+
+- script: npx eslint ./ --fix
+  displayName: 'Ajustando falhas com ESLint'
 
 - script: |
     echo Acabou!
