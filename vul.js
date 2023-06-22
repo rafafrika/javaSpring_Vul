@@ -1,7 +1,7 @@
-function getUserName() {
-    var username = prompt("Digite seu nome de usuário:");
-    return "Bem-vindo, " + username + "!";
-  }
-  
-  var greeting = getUserName();
-  document.write(greeting);
+function getUserName () {
+  const username = 'Rafa'
+  return 'Bem-vindo, ' + username + '!'
+}
+
+const greeting = getUserName()
+document.write(greeting)
