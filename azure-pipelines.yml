@@ -16,7 +16,7 @@ steps:
 - script: npm install
   displayName: 'Install dependencies'
 
-- script: npx eslint ./
+- script: npx eslint vul.js
   displayName: 'Run ESLint'
 
 - script: npx eslint ./ --fix
