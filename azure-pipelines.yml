@@ -1,10 +1,9 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- main
+  branches:
+    include:
+      - DEV
+      - QA
+      - main
 
 pool:
   vmImage: ubuntu-latest
@@ -26,3 +25,31 @@ steps:
     echo Acabou!
     echo † Dead line † 
   displayName: 'Fim da Execução'
+
+- script: git checkout DEV
+  displayName: 'Switch to DEV branch'
+
+- script: git push origin DEV
+  displayName: 'Push to DEV branch'
+
+- script: git checkout QA
+  displayName: 'Switch to QA branch'
+
+- script: git push origin QA
+  displayName: 'Push to QA branch'
+
+- script: |
+    echo Running Checkmarx scan on QA branch
+    # Comandos para executar o scan do Checkmarx na branch de QA
+  displayName: 'Checkmarx Scan - QA branch'
+
+- script: git checkout main
+  displayName: 'Switch to main branch'
+
+- script: git push origin main
+  displayName: 'Push to main branch'
+
+- script: |
+    echo Running ESLint and Checkmarx scan on PROD branch
+    # Comandos para executar o ESLint e o scan do Checkmarx na branch de PROD
+  displayName: 'ESLint and Checkmarx Scan - PROD branch'
