@@ -1,5 +1,5 @@
 function getUserName () {
-  const username = 'Rafa'
+  const username = "Rafa"
   return 'Bem-vindo, ' + username + '!'
 }
 
