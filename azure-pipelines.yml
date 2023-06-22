@@ -14,7 +14,7 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: npm install
-    displayName: 'Install dependencies'
+  displayName: 'Install dependencies'
 
 - script: npx eslint ./
   displayName: 'Run ESLint'
