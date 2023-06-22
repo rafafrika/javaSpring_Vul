@@ -19,7 +19,7 @@ steps:
 - script: npx eslint vul.js
   displayName: 'Run ESLint'
 
-- script: npx eslint ./ --fix
+- script: npx eslint vul.js --fix
   displayName: 'Ajustando falhas com ESLint'
 
 - script: |
